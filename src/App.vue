@@ -1,7 +1,11 @@
 <template>
-  <div id="nav"></div>
+  <main-nav/>
   <router-view />
 </template>
 
-<style>
-</style>
+<script>
+import mainNav from "@/components/mainNav";
+export default {
+  components: { mainNav },
+};
+</script>
