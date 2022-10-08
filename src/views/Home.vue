@@ -3,30 +3,257 @@
     <section id="hero">
       <carousel class="my-16">
         <slider v-for="(slide, i) in carouselSliders" :key="i">
-          <div class="top-0 left-0 w-full ">
+          <div class="top-0 left-0 w-full">
             <img :src="require(`@/assets/images/${slide}.jpg`)" />
           </div>
         </slider>
       </carousel>
-      
-       <div class="grid gap-10 mt-8 lg:grid-cols-5">
+
+      <div class="grid gap-10 mt-8 lg:grid-cols-4">
         <!-- cards -->
-        <div v-for="league in leagues" :key="league.id" class="card">
-          <img :src="league.image" class="object-cover w-full h-32" />
-          <div class="m-4">
-            <span class="font-bold">{{ league.league }}</span>
+        <div v-for="card in cards" :key="card.id" class="bg-yellow-300 card">
+          <img :src="card.logo" class="w-8 h-32" />
+          <div class="flex flex-col m-4">
+            <span class="font-bold">{{ card.label }}</span>
+            <span class="font-bold">{{ card.text }}</span>
           </div>
         </div>
       </div>
+      <div class="mt-8">
+        <span><img src="@/assets/icons/svg/rewards-badge.svg" alt="" /></span>
+      </div>
     </section>
     <section id="wears">
-      <h1>Most popular shirts</h1>
-      <div class="grid gap-10 mt-8 lg:grid-cols-5">
-        <!-- cards -->
-        <div v-for="league in leagues" :key="league.id" class="card">
-          <img :src="league.image" class="object-cover w-full h-32" />
-          <div class="m-4">
-            <span class="font-bold">{{ league.league }}</span>
+      <div class="flex flex-col m-auto bg-white p-auto">
+        <h1 class="flex px-5 py-5 mx-5 text-2xl font-bold text-gray-800">
+          Most Popular T-shirt
+        </h1>
+        <div class="flex pb-10 overflow-x-scroll hide-scroll-bar">
+          <div class="flex ml-10 flex-nowrap">
+            <div class="inline-block px-3">
+              <div class="max-w-xs overflow-hidden bg-white border">
+                <div class="bg-white w-72">
+                  <img
+                    class="object-cover w-72"
+                    src="@/assets/images/product-medium.jpg"
+                  />
+                  <div class="px-5 py-3 space-y-2">
+                    <h3 class="text-lg">Super Computer 9064GB</h3>
+
+                    <p class="space-x-2">
+                      <span class="text-2xl font-semibold">€600</span>
+                      <span class="text-sm text-red-500 line-through"
+                        >€1000</span
+                      >
+                    </p>
+                    <div class="flex items-center pt-3 pb-2 top-2">
+                      <a
+                        href="#"
+                        class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                      >
+                        Save
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inline-block px-3">
+              <div class="max-w-xs overflow-hidden bg-white border">
+                <div class="bg-white w-72">
+                  <img
+                    class="object-cover w-72"
+                    src="@/assets/images/product-medium.jpg"
+                  />
+                  <div class="px-5 py-3 space-y-2">
+                    <h3 class="text-lg">Super Computer 9064GB</h3>
+
+                    <p class="space-x-2">
+                      <span class="text-2xl font-semibold">€600</span>
+                      <span class="text-sm text-red-500 line-through"
+                        >€1000</span
+                      >
+                    </p>
+                    <div class="flex items-center pt-3 pb-2 top-2">
+                      <a
+                        href="#"
+                        class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                      >
+                        Save
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inline-block px-3">
+              <div class="max-w-xs overflow-hidden bg-white border">
+                <div class="bg-white w-72">
+                  <img
+                    class="object-cover w-72"
+                    src="@/assets/images/product-medium.jpg"
+                  />
+                  <div class="px-5 py-3 space-y-2">
+                    <h3 class="text-lg">Super Computer 9064GB</h3>
+
+                    <p class="space-x-2">
+                      <span class="text-2xl font-semibold">€600</span>
+                      <span class="text-sm text-red-500 line-through"
+                        >€1000</span
+                      >
+                    </p>
+                    <div class="flex items-center pt-3 pb-2 top-2">
+                      <a
+                        href="#"
+                        class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                      >
+                        Save
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inline-block px-3">
+              <div class="max-w-xs overflow-hidden bg-white border">
+                <div class="bg-white w-72">
+                  <img
+                    class="object-cover w-72"
+                    src="@/assets/images/product-medium.jpg"
+                  />
+                  <div class="px-5 py-3 space-y-2">
+                    <h3 class="text-lg">Super Computer 9064GB</h3>
+
+                    <p class="space-x-2">
+                      <span class="text-2xl font-semibold">€600</span>
+                      <span class="text-sm text-red-500 line-through"
+                        >€1000</span
+                      >
+                    </p>
+                    <div class="flex items-center pt-3 pb-2 top-2">
+                      <a
+                        href="#"
+                        class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                      >
+                        Save
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inline-block px-3">
+              <div class="max-w-xs overflow-hidden bg-white border">
+                <div class="bg-white w-72">
+                  <img
+                    class="object-cover w-72"
+                    src="@/assets/images/product-medium.jpg"
+                  />
+                  <div class="px-5 py-3 space-y-2">
+                    <h3 class="text-lg">Super Computer 9064GB</h3>
+
+                    <p class="space-x-2">
+                      <span class="text-2xl font-semibold">€600</span>
+                      <span class="text-sm text-red-500 line-through"
+                        >€1000</span
+                      >
+                    </p>
+                    <div class="flex items-center pt-3 pb-2 top-2">
+                      <a
+                        href="#"
+                        class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                      >
+                        Save
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inline-block px-3">
+              <div class="max-w-xs overflow-hidden bg-white border">
+                <div class="bg-white w-72">
+                  <img
+                    class="object-cover w-72"
+                    src="@/assets/images/product-medium.jpg"
+                  />
+                  <div class="px-5 py-3 space-y-2">
+                    <h3 class="text-lg">Super Computer 9064GB</h3>
+
+                    <p class="space-x-2">
+                      <span class="text-2xl font-semibold">€600</span>
+                      <span class="text-sm text-red-500 line-through"
+                        >€1000</span
+                      >
+                    </p>
+                    <div class="flex items-center pt-3 pb-2 top-2">
+                      <a
+                        href="#"
+                        class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                      >
+                        Save
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inline-block px-3">
+              <div class="max-w-xs overflow-hidden bg-white border">
+                <div class="bg-white w-72">
+                  <img
+                    class="object-cover w-72"
+                    src="@/assets/images/product-medium.jpg"
+                  />
+                  <div class="px-5 py-3 space-y-2">
+                    <h3 class="text-lg">Super Computer 9064GB</h3>
+
+                    <p class="space-x-2">
+                      <span class="text-2xl font-semibold">€600</span>
+                      <span class="text-sm text-red-500 line-through"
+                        >€1000</span
+                      >
+                    </p>
+                    <div class="flex items-center pt-3 pb-2 top-2">
+                      <a
+                        href="#"
+                        class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                      >
+                        Save
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="inline-block px-3">
+              <div class="max-w-xs overflow-hidden bg-white border">
+                <div class="bg-white w-72">
+                  <img
+                    class="object-cover w-72"
+                    src="@/assets/images/product-medium.jpg"
+                  />
+                  <div class="px-5 py-3 space-y-2">
+                    <h3 class="text-lg">Super Computer 9064GB</h3>
+
+                    <p class="space-x-2">
+                      <span class="text-2xl font-semibold">€600</span>
+                      <span class="text-sm text-red-500 line-through"
+                        >€1000</span
+                      >
+                    </p>
+                    <div class="flex items-center pt-3 pb-2 top-2">
+                      <a
+                        href="#"
+                        class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                      >
+                        Save
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -85,7 +312,7 @@
         <div class="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-4">
           <div class="">
             <h6
-              class="flex items-center justify-center mb-4 font-semibold uppercase md:justify-start"
+              class="flex items-center justify-center mb-4 font-semibold uppercase  md:justify-start"
             >
               main menu
             </h6>
@@ -133,7 +360,7 @@
           </div>
           <div class="">
             <h6
-              class="flex justify-center mb-4 font-semibold uppercase md:justify-start"
+              class="flex justify-center mb-4 font-semibold uppercase  md:justify-start"
             >
               Subscribe
             </h6>
@@ -143,7 +370,7 @@
             <div class="flex justify-center">
               <div class="mb-3 xl:w-96">
                 <div
-                  class="relative flex flex-wrap items-stretch w-full mb-4 input-group"
+                  class="relative flex flex-wrap items-stretch w-full mb-4  input-group"
                 >
                   <input
                     type="search"
@@ -211,7 +438,7 @@
           </div>
           <div class="">
             <h6
-              class="flex justify-center mb-4 font-semibold uppercase md:justify-start"
+              class="flex justify-center mb-4 font-semibold uppercase  md:justify-start"
             >
               Follow us
             </h6>
@@ -329,32 +556,34 @@ export default {
         id: 6,
       },
     ];
-        const cards = [
+    const cards = [
       {
-        label: "Kids",
-        image: require("@/assets/images/other-collections/kids.jpg"),
+        label: "Secure Shipping",
+        text: "on all orders",
+        logo: require("@/assets/icons/svg/truck.svg"),
         id: 1,
       },
       {
-        label: "Large sizes",
-        image: "@/assets/images/other-collections/large-sizes.jpg ",
+        label: "Telephone",
+        text: "+123456789",
+        logo: require("@/assets/icons/png/phone.png"),
         id: 2,
       },
       {
-        label: "GoalKeeper",
-        image: "@/assets/images/other-collections/goalkeeper.jpg ",
+        label: "Chat WhatsApp",
+        text: "Mon-Fri: 9:00-21:00 - Sat-Sun: 9:00 - 17:00",
+        logo: require("@/assets/icons/png/whatsapp.png"),
         id: 3,
       },
       {
-        label: "Authentic/Pro Player",
-        image: require("@/assets/images/other-collections/pro-player.jpg"),
+        label: "Quality Guarantee",
+        text: "Verified Purchase Reviews",
+        logo: require("@/assets/icons/svg/check-badge.svg"),
         id: 4,
       },
- 
- 
     ];
 
-    return { leagues, otherInfo, collections, carouselSliders };
+    return { leagues, otherInfo, collections, carouselSliders, cards };
   },
 };
 </script>

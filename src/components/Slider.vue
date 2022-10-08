@@ -1,17 +1,14 @@
 <template>
   <div class="slide">
     <transition name="slide">
-        <slot/>
+      <slot />
     </transition>
   </div>
 </template>
 
 <script>
-export default {
-
-}
+export default {};
 </script>
 
 <style>
-
 </style>

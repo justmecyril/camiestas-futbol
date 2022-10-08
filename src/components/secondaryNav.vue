@@ -1,6 +1,6 @@
 <template>
-  <div class="flex justify-between w-full h-12 bg-white border-b ">
-    <div class=" ml-52">
+  <div class="flex justify-between w-full h-12 bg-white border-b">
+    <div class="ml-52">
       <button>All Category <img src="@/assets/icons/svg/down.svg" /></button>
     </div>
     <div class="flex justify-center border-l">
@@ -38,7 +38,9 @@
         </div>
       </div>
     </div>
-    <span class="border-l"><img src="@/assets/icons/svg/shopping-cart.svg" /></span>
+    <span class="border-l"
+      ><img src="@/assets/icons/svg/shopping-cart.svg"
+    /></span>
     <div class="border-l">
       <span><img src="@/assets/icons/svg/user.svg" /></span>
       <img src="@/assets/icons/svg/down.svg" />
