@@ -4,7 +4,7 @@
       <div class="grid gap-8 grid-1 md:grid-cols-2 lg:grid-cols-4">
         <div class="">
           <h6
-            class="flex items-center justify-center mb-4 font-bold capitalize  md:justify-start"
+            class="flex items-center justify-center mb-4 font-bold capitalize md:justify-start"
           >
             main menu
           </h6>
@@ -32,7 +32,7 @@
         </div>
         <div class="">
           <h6
-            class="flex justify-center mb-4 font-bold capitalize  md:justify-start"
+            class="flex justify-center mb-4 font-bold capitalize md:justify-start"
           >
             secondary menu
           </h6>
@@ -54,7 +54,7 @@
         </div>
         <div class="">
           <h6
-            class="flex justify-center mb-4 font-bold capitalize  md:justify-start"
+            class="flex justify-center mb-4 font-bold capitalize md:justify-start"
           >
             Subscribe
           </h6>
@@ -102,7 +102,7 @@
         </div>
         <div class="">
           <h6
-            class="flex justify-center mb-4 font-bold capitalize  md:justify-start"
+            class="flex justify-center mb-4 font-bold capitalize md:justify-start"
           >
             Follow us
           </h6>

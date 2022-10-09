@@ -1,11 +1,11 @@
 import axios from "axios";
-import { coolGray } from "tailwindcss/colors";
+
 import { createStore } from "vuex";
 
 export default createStore({
   state: {
     categories: [],
-    banners:[],
+    banners: [],
   },
   getters: {
     fetchCategories(state) {
@@ -28,19 +28,13 @@ export default createStore({
       try {
         const response = await axios.get("v1/product-category");
         commit("FETCH_CATEGORIES", response.data.categories.data);
-      
-      } catch (error) {
-       
-      }
+      } catch (error) {}
     },
     async fetchBanners({ commit }) {
       try {
         const response = await axios.get("v1/banner");
         commit("FETCH_BANNERS", response.data.banners.data);
-      // console.log(response)
-      } catch (error) {
-       
-      }
+      } catch (error) {}
     },
   },
   modules: {},

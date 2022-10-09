@@ -10,9 +10,14 @@
           <img :src="banner.image" class="object-cover w-full h-96" />
         </div>
         <Pagination class="absolute bottom-10 left-10" />
-        <h1 class="absolute font-bold text-white top-10 left-10">
-          {{ banner.content }}
+        <h1 class="absolute text-4xl font-bold text-white top-10 left-10">
+          Your favourite customized <br /><span class="ml-24 text-yellow-400"
+            >Club Jerseys.</span
+          >
         </h1>
+        <!-- <h1 class="absolute font-bold text-white top-10 left-10">
+          {{ banner.content }}
+        </h1> -->
         <div class="absolute flex bottom-10 right-10">
           <button class="p-2 text-white capitalize border">
             {{ banner.btn_text }}
