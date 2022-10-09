@@ -76,10 +76,10 @@
     <h1 class="text-2xl font-bold uppercase">country leagues</h1>
     <div class="grid gap-10 mt-8 lg:grid-cols-5">
       <!-- cards -->
-      <div v-for="league in leagues" :key="league.id" class="card">
-        <img :src="league.image" class="object-cover w-full" />
+      <div v-for="(league, i) in countryLeagues" :key="i" class="card">
+        <!-- <img :src="league.image" class="object-cover w-full" /> -->
         <div class="m-4">
-          <span class="font-bold">{{ league.league }}</span>
+          <span class="font-bold">{{ league }}</span>
         </div>
       </div>
     </div>
@@ -127,7 +127,8 @@
 </template>
 
 <script>
-import { ref } from "@vue/reactivity";
+import { ref,computed } from "@vue/reactivity";
+import { useStore } from "vuex";
 import Carousel from "@/components/Carousel.vue";
 import Slider from "@/components/Slider.vue";
 
@@ -137,6 +138,8 @@ export default {
     Slider,
   },
   setup() {
+    const store = useStore();
+    
     const carouselSliders = ["hero"];
     const leagues = [
       {
@@ -271,6 +274,9 @@ export default {
         discount: 67,
       },
     ];
+    
+    store.dispatch("fetchCategories")
+    const countryLeagues = computed(() => store.getters.categories);
 
     return {
       leagues,
@@ -279,6 +285,7 @@ export default {
       carouselSliders,
       cards,
       shirtDetails,
+      countryLeagues
     };
   },
 };
