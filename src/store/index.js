@@ -1,4 +1,5 @@
 import axios from "axios";
+import { coolGray } from "tailwindcss/colors";
 import { createStore } from "vuex";
 
 export default createStore({
@@ -19,10 +20,10 @@ export default createStore({
     async fetchCategories({ commit }) {
       try {
         const response = await axios.get("v1/product-category");
-        commit("FETCH_CATEGORIES", response.data);
-        console.log(response.data)
+        commit("FETCH_CATEGORIES", response.data.categories.data);
+       console.log(response,"categories")
       } catch (error) {
-        console.log(error);
+        // console.log(error);
       }
     },
   },

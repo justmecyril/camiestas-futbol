@@ -13,10 +13,10 @@
       <div v-for="card in cards" :key="card.id" class="relative bg-yellow-300">
         <img
           :src="card.logo"
-          class="absolute w-4 h-8 mb-12 bg-yellow-500 top-2 left-2"
+          class="absolute w-4 h-4 mb-12 bg-yellow-500 top-2 left-2"
         />
-        <div class="flex flex-col m-4">
-          <span class="font-bold">{{ card.label }}</span>
+        <div class="flex flex-col mx-4 mt-12">
+          <span class="font-bold text-md">{{ card.label }}</span>
           <span class="text-sm">{{ card.text }}</span>
         </div>
       </div>
@@ -36,7 +36,7 @@
           v-for="(detail, i) in shirtDetails"
           :key="i"
         >
-          <div class="inline-block px-3">
+          <router-link to="product-description/1" class="inline-block px-3">
             <div class="max-w-xs overflow-hidden bg-white border">
               <div class="bg-white w-72">
                 <img
@@ -55,7 +55,7 @@
                     >
                   </p>
                   <div
-                    class="absolute bottom-0 flex items-center pt-3 pb-2 top-2"
+                    class="absolute top-0 bottom-0 flex items-center pt-3 pb-2"
                   >
                     <a
                       href="#"
@@ -67,7 +67,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </router-link>
         </div>
       </div>
     </div>
@@ -77,9 +77,13 @@
     <div class="grid gap-10 mt-8 lg:grid-cols-5">
       <!-- cards -->
       <div v-for="(league, i) in countryLeagues" :key="i" class="card">
-        <!-- <img :src="league.image" class="object-cover w-full" /> -->
+        <div>
+          
+        <img v-if="league.image" :src="league.image" :alt="league.title" class="object-cover w-full" />
+        <img v-else src="@/assets/images/country-leagues/images.jpg" alt="" class="object-cover w-full" />
+        </div>
         <div class="m-4">
-          <span class="font-bold">{{ league }}</span>
+          <span class="font-bold">{{ league.title }}</span>
         </div>
       </div>
     </div>
@@ -96,9 +100,10 @@
         <img :src="collection.image" class="object-cover w-full" />
 
         <div
-          class="absolute bottom-0 flex justify-between w-full px-5 text-white bg-gray-400 "
+          class="absolute bottom-0 flex justify-between w-full px-5 text-white opacity-60 "
         >
-          {{ collection.type }}
+        <span>{{ collection.type }}</span>
+          
           <span class="px-5 py-3 bg-yellow-400">
             <img src="@/assets/icons/svg/right.svg" />
           </span>
@@ -141,33 +146,7 @@ export default {
     const store = useStore();
     
     const carouselSliders = ["hero"];
-    const leagues = [
-      {
-        league: "Champions League",
-        image: require("@/assets/images/country-leagues/champions-league.jpg"),
-        id: 1,
-      },
-      {
-        league: "Europa League",
-        image: "@/assets/images/country-leagues/europa-league.jpg ",
-        id: 2,
-      },
-      {
-        league: "Copa America",
-        image: "@/assets/images/country-leagues/copa-america.jpg ",
-        id: 3,
-      },
-      {
-        league: "Asian Cup",
-        image: require("@/assets/images/country-leagues/asian-cup.jpg"),
-        id: 4,
-      },
-      {
-        league: "African Nations Cup",
-        image: require("@/assets/images/country-leagues/caf.jpg"),
-        id: 5,
-      },
-    ];
+  
     const otherInfo = ref([
       {
         caption: "personalization",
@@ -192,12 +171,12 @@ export default {
       },
       {
         type: "Large sizes",
-        image: "@/assets/images/other-collections/large-sizes.jpg ",
+        image: require("@/assets/images/other-collections/large-sizes.jpg"),
         id: 2,
       },
       {
         type: "GoalKeeper",
-        image: "@/assets/images/other-collections/goalkeeper.jpg ",
+        image: require("@/assets/images/other-collections/goalkeeper.jpg"),
         id: 3,
       },
       {
@@ -276,10 +255,11 @@ export default {
     ];
     
     store.dispatch("fetchCategories")
-    const countryLeagues = computed(() => store.getters.categories);
+    const countryLeagues = computed(() => store.getters.fetchCategories);
+    // console.log(countryLeagues)
 
     return {
-      leagues,
+     
       otherInfo,
       collections,
       carouselSliders,
