@@ -1,12 +1,28 @@
 <template>
   <section id="hero">
-    <carousel class="my-16">
-      <slider v-for="(slide, i) in carouselSliders" :key="i">
-        <div class="top-0 left-0 w-full">
-          <img :src="require(`@/assets/images/${slide}.jpg`)" />
+    <Carousel :autoplay="2000" :wrap-around="true">
+      <Slide
+        v-for="banner in banners"
+        :key="banner"
+        class="relative carousel__slide"
+      >
+        <div class="carousel__item">
+          <img :src="banner.image" class="object-cover w-full h-96" />
         </div>
-      </slider>
-    </carousel>
+        <Pagination class="absolute bottom-10 left-10" />
+        <h1 class="absolute font-bold text-white top-10 left-10">
+          {{ banner.content }}
+        </h1>
+        <div class="absolute flex bottom-10 right-10">
+          <button class="p-2 text-white capitalize border">
+            {{ banner.btn_text }}
+          </button>
+          <span
+            ><img src="@/assets/icons/svg/bag.svg" class="p-3 bg-white border"
+          /></span>
+        </div>
+      </Slide>
+    </Carousel>
 
     <div class="grid gap-10 mt-8 lg:grid-cols-4">
       <!-- cards -->
@@ -43,16 +59,16 @@
                   class="object-cover w-72"
                   src="@/assets/images/product-medium.jpg"
                 />
-                   <div
-                    class="absolute flex items-center pt-3 pb-2 bottom-24 left-4"
+                <div
+                  class="absolute flex items-center pt-3 pb-2 bottom-24 left-4"
+                >
+                  <a
+                    href="#"
+                    class="px-4 py-2 text-sm text-center text-white bg-green-400 "
                   >
-                    <a
-                      href="#"
-                      class="px-4 py-2 text-sm text-center text-white bg-green-400 "
-                    >
-                      Save {{ detail.discount }}%
-                    </a>
-                  </div>
+                    Save {{ detail.discount }}%
+                  </a>
+                </div>
                 <div class="py-3 space-y-2 sm:px-5">
                   <h3 class="text-sm">{{ detail.caption }}</h3>
 
@@ -64,7 +80,6 @@
                       >€{{ detail.price }}</span
                     >
                   </p>
-               
                 </div>
               </div>
             </div>
@@ -79,9 +94,18 @@
       <!-- cards -->
       <div v-for="(league, i) in countryLeagues" :key="i" class="card">
         <div>
-          
-        <img v-if="league.image" :src="league.image" :alt="league.title" class="object-cover w-full" />
-        <img v-else src="@/assets/images/country-leagues/images.jpg" alt="" class="object-cover w-full" />
+          <img
+            v-if="league.image"
+            :src="league.image"
+            :alt="league.title"
+            class="object-cover w-full"
+          />
+          <img
+            v-else
+            src="@/assets/images/country-leagues/images.jpg"
+            alt=""
+            class="object-cover w-full"
+          />
         </div>
         <div class="m-4">
           <span class="font-bold">{{ league.title }}</span>
@@ -101,10 +125,10 @@
         <img :src="collection.image" class="object-cover w-full" />
 
         <div
-          class="absolute bottom-0 flex justify-between w-full px-5 text-white opacity-60 "
+          class="absolute bottom-0 flex justify-between w-full px-5 text-white  opacity-60"
         >
-        <span>{{ collection.type }}</span>
-          
+          <span>{{ collection.type }}</span>
+
           <span class="px-5 py-3 bg-yellow-400">
             <img src="@/assets/icons/svg/right.svg" />
           </span>
@@ -133,21 +157,22 @@
 </template>
 
 <script>
-import { ref,computed } from "@vue/reactivity";
+import { ref, computed } from "@vue/reactivity";
 import { useStore } from "vuex";
-import Carousel from "@/components/Carousel.vue";
-import Slider from "@/components/Slider.vue";
+import "vue3-carousel/dist/carousel.css";
+import { defineComponent } from "vue";
+import { Carousel, Pagination, Slide } from "vue3-carousel";
 
-export default {
+export default defineComponent({
   components: {
     Carousel,
-    Slider,
+    Slide,
+    Pagination,
+    Navigation,
   },
   setup() {
     const store = useStore();
-    
-    const carouselSliders = ["hero"];
-  
+
     const otherInfo = ref([
       {
         caption: "personalization",
@@ -254,20 +279,46 @@ export default {
         discount: 67,
       },
     ];
-    
-    store.dispatch("fetchCategories")
+
+    store.dispatch("fetchCategories");
     const countryLeagues = computed(() => store.getters.fetchCategories);
-    // console.log(countryLeagues)
+
+    store.dispatch("fetchBanners");
+    const banners = computed(() => store.getters.fetchBanners);
+    console.log(banners, "banner");
 
     return {
-     
       otherInfo,
       collections,
-      carouselSliders,
+
       cards,
       shirtDetails,
-      countryLeagues
+      countryLeagues,
+      banners,
     };
   },
-};
+});
 </script>
+<style scoped>
+.carousel__item {
+  min-height: 300px;
+  width: 100%;
+  background-color: var(--vc-clr-primary);
+  color: var(--vc-clr-white);
+  font-size: 20px;
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel__slide {
+  padding: 10px;
+}
+
+.carousel__prev,
+.carousel__next {
+  box-sizing: content-box;
+  border: 5px solid white;
+}
+</style>
