@@ -1,5 +1,9 @@
 # camiestas-futbol
 
+# clone the project
+
+git clone https://github.com/justmecyril/camiestas-futbol.git
+
 ## Project setup
 ```
 npm install
@@ -9,11 +13,8 @@ npm install
 ```
 npm run serve
 ```
+# go to http://localhost:3000
 
-### Compiles and minifies for production
-```
-npm run build
-```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+
