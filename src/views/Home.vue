@@ -38,12 +38,22 @@
         >
           <router-link to="product-description/1" class="inline-block px-3">
             <div class="max-w-xs overflow-hidden bg-white border">
-              <div class="bg-white w-72">
+              <div class="relative bg-white w-72">
                 <img
                   class="object-cover w-72"
                   src="@/assets/images/product-medium.jpg"
                 />
-                <div class="px-5 py-3 space-y-2">
+                   <div
+                    class="absolute flex items-center pt-3 pb-2 bottom-24 left-4"
+                  >
+                    <a
+                      href="#"
+                      class="px-4 py-2 text-sm text-center text-white bg-green-400 "
+                    >
+                      Save {{ detail.discount }}%
+                    </a>
+                  </div>
+                <div class="py-3 space-y-2 sm:px-5">
                   <h3 class="text-sm">{{ detail.caption }}</h3>
 
                   <p class="space-x-2">
@@ -54,16 +64,7 @@
                       >€{{ detail.price }}</span
                     >
                   </p>
-                  <div
-                    class="absolute top-0 bottom-0 flex items-center pt-3 pb-2"
-                  >
-                    <a
-                      href="#"
-                      class="px-4 py-2 text-sm text-center text-white bg-green-400 "
-                    >
-                      Save {{ detail.discount }}%
-                    </a>
-                  </div>
+               
                 </div>
               </div>
             </div>
